@@ -21,40 +21,13 @@ public class UserService {
     }
 
     private Integer getAuthenticatedId(String username, String password) {
-        if (checkIfUsernameExists(username) && checkIfPasswordMatches(username, password)) {
-            return getIdByUsername(username);
-        }
-        return 0;
-    }
-
-    private Integer getIdByUsername(String username) {
-        List<User> users = new ArrayList<>(userMap.values());
-        for (User user : users) {
-            if (user.getUsername().equals(username)) {
-                return user.getId();
-            }
-        }
-        return 0;
-    }
-
-    private boolean checkIfPasswordMatches(String username, String password) {
         List<User> users = new ArrayList<>(userMap.values());
         for (User user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                return true;
+                return user.getId();
             }
         }
-        return false;
-    }
-
-    private boolean checkIfUsernameExists(String username) {
-        List<User> users = new ArrayList<>(userMap.values());
-        for (User user : users) {
-            if (user.getUsername().equals(username)) {
-                return true;
-            }
-        }
-        return false;
+        return null;
     }
 
     public void createUser(User user) {
