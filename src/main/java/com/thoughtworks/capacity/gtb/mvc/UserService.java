@@ -1,10 +1,9 @@
-package com.thoughtworks.capacity.gtb;
+package com.thoughtworks.capacity.gtb.mvc;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class UserService {
