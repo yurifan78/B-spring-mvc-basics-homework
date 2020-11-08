@@ -1,19 +1,17 @@
 package com.thoughtworks.capacity.gtb.mvc;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@JsonDeserialize
 public class User {
-    private Integer id;
-    private String username;
-    private String password;
-    private String email;
+    private final Integer id;
+    private final String username;
+    private final String password;
+    private final String email;
 
-    public User(int id, String username, String password, String email) {
+    public User(Integer id, String username, String password, String email) {
         this.id = id;
         this.username = username;
         this.password = password;

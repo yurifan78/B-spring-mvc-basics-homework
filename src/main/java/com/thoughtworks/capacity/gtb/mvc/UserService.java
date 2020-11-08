@@ -34,7 +34,7 @@ public class UserService {
                 return user.getId();
             }
         }
-        return null;
+        return 0;
     }
 
     private boolean checkIfPasswordMatches(String username, String password) {

@@ -4,8 +4,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 public class UserController {
 
@@ -16,9 +14,9 @@ public class UserController {
     }
 
     // GET
-    @RequestMapping(value = "/login?username={username}&password={password}", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     @ResponseBody
-    public User loginUser(@PathVariable("username")String username, @PathVariable("password")String password) {
+    public User loginUser(@RequestParam String username, @RequestParam String password) {
         return userService.loginUser(username, password);
     }
 
