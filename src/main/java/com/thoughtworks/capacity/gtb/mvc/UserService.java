@@ -27,8 +27,23 @@ public class UserService {
         return 0;
     }
 
+    private Integer getIdByUsername(String username) {
+        List<User> users = new ArrayList<>(userMap.values());
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
+                return user.getId();
+            }
+        }
+        return null;
+    }
+
     private boolean checkIfPasswordMatches(String username, String password) {
         List<User> users = new ArrayList<>(userMap.values());
+        for (User user : users) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                return true;
+            }
+        }
         return false;
     }
 
